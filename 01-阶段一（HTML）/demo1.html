@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				height: 2000px;
+			}
+			#box1{
+				width: 100%;
+				height: 100px;
+				/* 背景 */
+				background: red;
+				/* 字体大小 */
+				font-size:50px;
+				/* 字体加粗 */
+				font-weight: 900;
+				/* 文本左右局中 */
+				text-align: center;
+				/* 文本垂直居中 */
+				/* vertical-align:middle; */
+				line-height: 100px;
+				position: relative;
+				top:0;left: 0;
+			}
+			
+			#box1>img{
+				/* position定位: 相对/绝对/固定
+					相对：根据自身位置进行定位 原有位置保留
+					绝对：根据有定位属性的父元素进行定位，若父元素没有定位属性则根据body
+						 脱离文档流。层级是改变，原有位置不保留
+					固定：根据可视区窗口进行定位 原有位置不保留 层级改变	 
+				 */
+				position: absolute;
+				left:0;
+				top:0;
+			}
+			
+			#box2{
+				width: 100%;
+				height: 500px;
+				border: 4px solid aqua;
+			}
+			#box2>.left{
+				width: 25%;
+				background: green;
+				/* 浮动：让块元素并排显示 */
+				float: left;
+				color: orange;
+				/* 文本垂直居中 */
+				/* vertical-align:middle; */
+				line-height: 400px;
+			}
+			#box2>.right{
+				width:65%;
+				background: yellow;
+				color: green;
+				/* 文本垂直居中 */
+				/* vertical-align:middle; */
+				line-height: 400px;
+				/* 浮动：让块元素并排显示 */
+				float: right;
+			}
+			
+			#box2>div{
+				/* 字体大小 */
+				font-size:50px;
+				/* 字体加粗 */
+				font-weight: 900;
+				/* 文本左右局中 */
+				text-align: center;
+				height: 80%;
+				margin:2.5%;
+			}
+			#box3{
+				width: 100%;
+				height: 100px;
+				background: black;
+				color: white;
+				/* 字体大小 */
+				font-size:50px;
+				/* 字体加粗 */
+				font-weight: 900;
+				/* 文本左右局中 */
+				text-align: center;
+				line-height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			Header
+			<img src="https://www.gdou.edu.cn/img/logo1.png" alt="">
+		</div>
+		
+		<div id="box2">
+			
+			<div class="left">
+				Left
+			</div>
+			
+			<div class="right">
+				Right
+			</div>
+			
+		</div>
+		
+		<div id="box3">
+			footer
+		</div>
+		<!-- 音频标签 -->
+		<audio id="music" autoplay="autoplay" src="img/周杰伦%20-%20Mojito.mp3" >
+			
+		</audio>
+		
+		<img onclick="play()" id="btn" src="img/music.png" style="position: fixed;right: 5%;top:5%;" >
+	</body>
+	<script type="text/javascript">
+		document.onmousewheel=function(){
+			var sy=window.scrollY;
+			console.log(sy);
+			if(sy>=100){
+				document.getElementById('box1').style.position='fixed';
+			}else{
+				document.getElementById('box1').style.position='relative';
+			}
+		}
+		
+		// 音乐开关
+		function play(){
+			if(document.getElementById('music').paused){
+				document.getElementById('music').play();
+			}else{
+				document.getElementById('music').pause();
+			}
+		}
+	</script>
+</html>
